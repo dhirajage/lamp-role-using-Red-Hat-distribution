@@ -1,0 +1,4 @@
+inventory.ini
+my-key.pem
+*.retry
+.ansible/

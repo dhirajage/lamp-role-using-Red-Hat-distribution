@@ -1,0 +1,8 @@
+---
+ - name: lamp installation using roles
+   hosts: targetserver
+   become: true
+   roles:
+    - httpd
+    - mariadb
+    - php

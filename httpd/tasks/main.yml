@@ -1,0 +1,32 @@
+---
+# tasks file for httpd
+- name: installation of webserver
+  ansible.builtin.yum:
+    name: "{{pkg}}"
+    state: present
+
+- name: start and enbale services of webserver
+  ansible.builtin.systemd_service:
+    name: "{{svc}}"
+    state: started
+    enabled: true
+
+- name: configuration setup of webserver
+  ansible.builtin.blockinfile:
+    path: "{{conf_path}}"
+    create: true
+    block: |
+      Listen 85
+      <VirtualHost *:85>
+       DocumentRoot /var/www/html
+       DirectoryIndex index.html index.php      
+      </VirtualHost>
+  notify: restart httpd
+
+- name: deployment of php app
+  ansible.builtin.copy:
+    src: "{{item}}"
+    dest: "{{file_path}}" 
+  loop:
+   - ../php/files/index.php
+   - index.html 

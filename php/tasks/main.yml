@@ -1,0 +1,12 @@
+---
+# tasks file for php
+- name: installation of application
+  ansible.builtin.yum:
+    name: "{{pkg}}"
+    state: present
+
+- name: start and enable application service
+  ansible.builtin.systemd_service:
+    name: "{{svc}}"
+    state: started
+    enabled: true

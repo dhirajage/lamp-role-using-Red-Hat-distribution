@@ -1,0 +1,12 @@
+---
+# tasks file for mariadb
+- name: installation of database server
+  ansible.builtin.yum:
+    name: "{{pkg}}"
+    state: present
+
+- name: start and enable database service
+  ansible.builtin.systemd_service:
+    name: "{{svc}}"
+    state: started
+    enabled: true

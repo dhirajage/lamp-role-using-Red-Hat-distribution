@@ -1,0 +1,6 @@
+---
+# vars file for httpd
+pkg: httpd
+svc: httpd
+file_path: /var/www/html
+conf_path: /etc/httpd/conf.d/custom.conf

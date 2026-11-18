@@ -1,0 +1,4 @@
+---
+# vars file for mariadb
+pkg: mariadb105-server
+svc: mariadb

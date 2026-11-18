@@ -1,0 +1,7 @@
+---
+# vars file for php
+pkg: 
+ - php
+ - php-fpm
+svc: php-fpm
+
